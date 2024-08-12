@@ -1,0 +1,3 @@
+bootargs=console=ttyPS0,115200n8 root=/dev/mmcblk0p2 rw rootfstype=ext4;
+bootcmd=fatload mmc 0:1 0x08020000 uImage; fatload mmc 0:1 0x25d84300 zynq-pynqz1.dtb; bootm 0x08020000 - 0x025d84300;
+uenvcmd=run bootcmd;

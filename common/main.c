@@ -38,6 +38,15 @@ static void run_preboot_environment_command(void)
 # endif
 	}
 #endif /* CONFIG_PREBOOT */
+
+	/* Force setup of bootcmd... */
+#ifdef CONFIG_BOOTARGS
+	setenv("bootargs",);
+#endif//CONFIG_BOOTARGS
+
+#ifdef CONFIG_BOOTCOMMAND
+	setenv("bootcmd", CONFIG_BOOTCOMMAND);
+#endif//CONFIG_BOOTCOMMAND
 }
 
 /* We come here after U-Boot is initialised and ready to process commands */
@@ -69,7 +78,8 @@ void main_loop(void)
 	if (cli_process_fdt(&s))
 		cli_secure_boot_cmd(s);
 
-	autoboot_command(s);
+	/* run the boot sequence */
+	run_command_list("run bootcmd\0", -1, 0);
 
 	cli_loop();
 }
