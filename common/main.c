@@ -31,6 +31,7 @@ static void run_preboot_environment_command(void)
 		int prev = disable_ctrlc(1);	/* disable Control C checking */
 # endif
 
+
 		run_command_list(p, -1, 0);
 
 # ifdef CONFIG_AUTOBOOT_KEYED
@@ -41,7 +42,7 @@ static void run_preboot_environment_command(void)
 
 	/* Force setup of bootcmd... */
 #ifdef CONFIG_BOOTARGS
-	setenv("bootargs",);
+	setenv("bootargs",CONFIG_BOOTARGS);
 #endif//CONFIG_BOOTARGS
 
 #ifdef CONFIG_BOOTCOMMAND

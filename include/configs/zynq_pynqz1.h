@@ -48,6 +48,6 @@
  * statements.
 */
 #define CONFIG_BOOTARGS "console=ttyPS0,115200n8 root=/dev/mmcblk0p2 rw rootfstype=ext4\0"
-#define CONFIG_BOOTCOMMAND "fatload mmc 0:1 0x08020000 uImage;fatload mmc 0:1 0x25d84300 zynq-pynqz1.dtb;bootm 0x08020000 - 0x25d84300\0"
+#define CONFIG_BOOTCOMMAND "fatload mmc 0:1 0x08020000 uImage;fatload mmc 0:1 0x18D7130 zynq-pynqz1.dtb;bootm 0x08020000 - 0x18D7130\0"
 
 #endif /* __CONFIG_ZYNQ_PYNQZ1_H */
